@@ -17,10 +17,50 @@ namespace WebAppProjeto01.Controllers
             new Categoria() { CategoriaId = 4, Nome = "Mouses"},
             new Categoria() { CategoriaId = 5, Nome = "Desktops"}
         };
-        // GET: Categorias
+
+        // GET: Categorias Index
         public ActionResult Index()
         {
             return View(categorias);
+        }
+
+        // GET: Categorias Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //POST: Categorias Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categoria categoria)
+        {
+            categorias.Add(categoria);
+            categoria.CategoriaId = categorias.Select(m => m.CategoriaId).Max() + 1;
+            return RedirectToAction("Index");
+        }
+
+        // GET: Categorias Edit
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
+
+        //POST: Categorias Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Categoria categoria)
+        {
+            categorias.Remove(
+            categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
+            categorias.Add(categoria);
+            return RedirectToAction("Index");
+        }
+
+        // GET: Categorias Details
+        public ActionResult Details(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
         }
     }
 }
