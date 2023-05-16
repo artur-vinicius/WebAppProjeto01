@@ -4,16 +4,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 border">
+            <h2 class="bg-primary" style="padding: 0.5em; border-radius: 5px">Fabricantes</h2>
+            <ul class="list-group">
+                @foreach (var fabricante in Model.Fabricantes)
+                {
+                    <li class="list-group-item">
+                        @Html.ActionLink(fabricante.Nome, "Details", "Fabricantes", new { id = fabricante.FabricanteId }, null)
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
-</body>
-</html>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 border">
+            <h2 class="bg-primary" style="padding: 0.5em; border-radius: 5px">Categorias</h2>
+            <ul class="list-group">
+                @foreach (var categoria in Model.Categorias)
+                {
+                    <li class="list-group-item">
+                        @Html.ActionLink(categoria.Nome, "Details", "Categorias", new { id = categoria.CategoriaId }, null)
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link href="@Url.Content("~/Content/DataTables-1.10.2/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+
+@section ScriptPage{
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable();
+            $('li').removeClass("active");
+            $('#liHome').addClass("active");
+        });
+    </script>
+}
