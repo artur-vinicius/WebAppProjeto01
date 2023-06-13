@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto01.Context;
 using WebAppProjeto01.Models;
+using System.Data.Entity;
 
 namespace WebAppProjeto01.Controllers
 {
@@ -19,6 +20,26 @@ namespace WebAppProjeto01.Controllers
             var fabricantes = context.Fabricantes;
             var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
             return View(home);
+        }
+
+        public ActionResult Categoria(int id)
+        {
+            var categorias = context.Categorias.Include("Produtos.Categoria");
+            var fabricantes = context.Fabricantes.Include("Produtos.Fabricante");
+            var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
+            ViewData["item"] = categorias.Where(c => c.CategoriaId == id).First().Produtos;
+            ViewData["categoria"] = true;
+            return View("Index", home);
+        }
+
+        public ActionResult Fabricante(int id)
+        {
+            var categorias = context.Categorias.Include("Produtos.Categoria");
+            var fabricantes = context.Fabricantes.Include("Produtos.Fabricante");
+            var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
+            ViewData["item"] = fabricantes.Where(f => f.FabricanteId == id).First().Produtos;
+            ViewData["categoria"] = false;
+            return View("Index", home);
         }
     }
 }
