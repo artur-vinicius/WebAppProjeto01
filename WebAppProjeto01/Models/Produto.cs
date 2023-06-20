@@ -15,5 +15,8 @@ namespace WebAppProjeto01.Models
 
         public Categoria Categoria { get; set; }
         public Fabricante Fabricante { get; set; }
+
+        public string LogotipoMimeType { get; set; }
+        public byte[] Logotipo { get; set; }
     }
 }
