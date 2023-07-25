@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using WebAppProjeto01.Context;
 using WebAppProjeto01.Models;
 using System.Data.Entity;
-using Modelo.Tabelas;
-using Modelo.Cadastros;
 
 namespace WebAppProjeto01.Controllers
 {
