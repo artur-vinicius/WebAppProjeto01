@@ -16,6 +16,10 @@ namespace Persistencia.DAL.Tabelas
         {
             return context.Categorias.OrderBy(b => b.Nome);
         }
+        public IQueryable<Categoria> ObterCategoriaComProdutos()
+        {
+            return context.Categorias.Include("Produtos.Categoria");
+        }
         public Categoria ObterCategoriaPorId(long id)
         {
             return context.Categorias.Where(c => c.CategoriaId == id).First();

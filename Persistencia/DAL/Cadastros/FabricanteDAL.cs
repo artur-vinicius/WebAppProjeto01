@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Persistencia.Contexts;
 using Modelo.Cadastros;
 using System.Data.Entity;
@@ -16,6 +12,11 @@ namespace Persistencia.DAL.Cadastros
         {
             return context.Fabricantes.OrderBy(b => b.Nome);
         }
+        public IQueryable<Fabricante> ObterFabricantesComProdutos()
+        {
+            return context.Fabricantes.Include("Produtos.Fabricante");
+        }
+
         public Fabricante ObterFabricantePorId(long id)
         {
             return context.Fabricantes.Where(f => f.FabricanteId == id).First();

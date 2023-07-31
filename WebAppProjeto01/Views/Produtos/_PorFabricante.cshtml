@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Modelo.Cadastros.Fabricante>
+﻿@model IEnumerable<Modelo.Cadastros.Produto>
 <div class="panel panel-primary">
     <div class="panel-heading">
         Relação de PRODUTOS registrados para o fabricante
@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProdutoId)
+                        @Html.DisplayNameFor(model => model.FabricanteId)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Nome)
@@ -30,7 +30,7 @@
                             @Html.DisplayFor(modelItem => item.Categoria.Nome)
                         </td>
                     </tr>
-                }
+                } 
             </tbody>
         </table>
     </div>

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Modelo.Tabelas;
+using Modelo.Cadastros;
 
 namespace WebAppProjeto01.Models
 {
