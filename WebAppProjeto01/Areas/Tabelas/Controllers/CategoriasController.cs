@@ -4,7 +4,7 @@ using Modelo.Tabelas;
 using Servico.Tabelas;
 
 
-namespace WebAppProjeto01.Controllers
+namespace WebAppProjeto01.Areas.Tabelas.Controllers
 {
     public class CategoriasController : Controller
     {

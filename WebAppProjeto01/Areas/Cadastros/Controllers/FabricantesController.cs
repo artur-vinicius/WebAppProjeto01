@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
 using Modelo.Cadastros;
 using Servico.Cadastros;
-using WebAppProjeto01.Models;
-using Modelo.Tabelas;
 
-namespace WebAppProjeto01.Controllers
+namespace WebAppProjeto01.Areas.Cadastros.Controllers
 {
     public class FabricantesController : Controller
     {
