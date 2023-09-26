@@ -38,11 +38,11 @@
         {
             if (ViewData["categoria"].Equals(true))
             {
-                @Html.Partial("~/Views/Produtos/_PorCategoria.cshtml", ViewData["item"], new ViewDataDictionary { { "title", "Relação de PRODUTOS registrados para a categoria" }, { "categoria", true } })
+                @Html.Partial("~Areas/Cadastros/Views/Produtos/_PorCategoria.cshtml", ViewData["item"], new ViewDataDictionary { { "title", "Relação de PRODUTOS registrados para a categoria" }, { "categoria", true } })
             }
             else
             {
-                @Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", ViewData["item"], new ViewDataDictionary { { "title", "Relação de PRODUTOS registrados para o fabricante" }, { "categoria", false } })
+                @Html.Partial("~Areas/Cadastros/Views/Produtos/_PorFabricante.cshtml", ViewData["item"], new ViewDataDictionary { { "title", "Relação de PRODUTOS registrados para o fabricante" }, { "categoria", false } })
             }
         }
     </div>

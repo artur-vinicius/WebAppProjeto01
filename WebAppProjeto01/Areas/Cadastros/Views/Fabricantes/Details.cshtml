@@ -8,7 +8,7 @@
         Visualizando detalhes de um FABRICANTE
     </div>
     <div class="panel-body">
-        @Html.Partial("~/Views/Fabricantes/_PartialDetailsContentPanel.cshtml", Model)
+        @Html.Partial("~Areas/Cadastros/Views/Fabricantes/_PartialDetailsContentPanel.cshtml", Model)
     </div>
     <div class="panel-footer panel-info">
         @Html.ActionLink("Alterar", "Edit", new { id = Model.FabricanteId },
@@ -18,4 +18,4 @@
     </div>
 </div>
 
-@Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", Model.Produtos.ToList())
+@Html.Partial("~Areas/Cadastros/Views/Produtos/_PorFabricante.cshtml", Model.Produtos.ToList())

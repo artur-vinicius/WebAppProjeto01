@@ -9,7 +9,7 @@
         Visualizando detalhes de uma CATEGORIA
     </div>
     <div class="panel-body">
-        @Html.Partial("~/Views/Categorias/_PartialDetailsContentPanel.cshtml", Model)
+        @Html.Partial("~Areas/Tabelas/Views/Categorias/_PartialDetailsContentPanel.cshtml", Model)
     </div>
         <div class="panel-footer panel-info">
             @Html.ActionLink("Alterar", "Edit", new { id = Model.CategoriaId },
@@ -19,4 +19,4 @@
         </div>
     </div>
 
-    @Html.Partial("~/Views/Produtos/_PorCategoria.cshtml", Model.Produtos.ToList())
+    @Html.Partial("~Areas/Cadastros/Views/Produtos/_PorCategoria.cshtml", Model.Produtos.ToList())
